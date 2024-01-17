@@ -1,9 +1,9 @@
 ---
 title: "Visual Studio Code ショートカットキーまとめ(チートシート)"
-emoji: "👏"
+emoji: "🔍"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["vscode", "ショートカットキー"]
-published: false
+published: true
 ---
 # はじめに
 転職に向けてプログラミング学習をしている者です。
