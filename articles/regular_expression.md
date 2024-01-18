@@ -25,8 +25,8 @@ published: false # 公開設定（falseにすると下書き）
 # 文字としてマッチするメタキャラクタ
 | メタキャラクタ | 意味 | 図解例 | 図解例にマッチする文字列の例 |
 | ---- | ---- | ---- | ---- |
-| `.` | 任意の1文字 | `t.st` ![](https://storage.googleapis.com/zenn-user-upload/ff3618310611-20240110.png) `.txt` ![](https://storage.googleapis.com/zenn-user-upload/941ebebd7ec5-20240110.png) | `test` `tzst` `tast` <br><br><br><br><br><br> `.txt` `stxt` |
-| `[ ]` | [ ]の中に含まれる、いずれかの1文字 | `g[rly]ow` ![](https://storage.googleapis.com/zenn-user-upload/6254d6c4f4e0-20240110.png) `a[b-fB-F]g` ![](https://storage.googleapis.com/zenn-user-upload/188778065b35-20240110.png) `test[1-5]` ![](https://storage.googleapis.com/zenn-user-upload/8b79aeb060a6-20240110.png) | `grow` `glow` `gyow` <br><br><br><br><br><br><br><br><br> `abg` `aEg` <br><br><br><br><br><br><br><br> `test1` `test4` |
+| `.` | 任意の1文字 | `t.st` ![](/images/t.st.png) `.txt` ![](/images/.txt.png) | `test` `tzst` `tast` <br><br><br><br><br><br> `.txt` `stxt` |
+| `[ ]` | [ ]の中に含まれる、いずれかの1文字 | `g[rly]ow` ![](/images/g[rly]ow.png) `a[b-fB-F]g` ![](https://storage.googleapis.com/zenn-user-upload/188778065b35-20240110.png) `test[1-5]` ![](https://storage.googleapis.com/zenn-user-upload/8b79aeb060a6-20240110.png) | `grow` `glow` `gyow` <br><br><br><br><br><br><br><br><br> `abg` `aEg` <br><br><br><br><br><br><br><br> `test1` `test4` |
 | `[^ ]` | [ ]の中に含まれない、いずれかの1文字 | `g[^rly]ow` ![](https://storage.googleapis.com/zenn-user-upload/7a68a9e0be35-20240110.png) `a[^b-fB-F]g` ![](https://storage.googleapis.com/zenn-user-upload/7d211bca0f9c-20240110.png) `test[^1-5]` ![](https://storage.googleapis.com/zenn-user-upload/29f8b50c5c66-20240110.png) | `gaow` `gdow` `gfow` <br><br><br><br><br><br><br><br><br> `akg` `aRg` <br><br><br><br><br><br><br> `test8` |
 | `\` | 直後のメタ文字の意味を打ち消す | `\.txt` ![](https://storage.googleapis.com/zenn-user-upload/f5283b4dea26-20240110.png) | `.txt` |
 
