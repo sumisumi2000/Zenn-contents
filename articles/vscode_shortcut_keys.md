@@ -141,11 +141,11 @@ Visual Studio Codeでよく使うであろうショートカットキーをま�
 | ショートカットキーの設定を開く    | `Ctrl` + `K` & `Ctrl` + `S` | **K**eybord **S**hortcut         |
 | Quick Openビューを開く            | `Ctrl` + `Q`                |                                  |
 
+# 終わりに
+追加や補足があれば、適宜修正していきます。
+ご指摘やアドバイスなどあればコメントいただけると幸いです！
+
 # 参考資料
 https://qiita.com/12345/items/64f4372fbca041e949d0
 https://youtu.be/wf-8HkfMckM?si=u0llMVqVYtLjlCal
 https://youtu.be/IBIz0gqIN20?si=dfHBqhYoD6mdgVPR
-
-# 終わりに
-追加や補足があれば、適宜修正していきます。
-ご指摘やアドバイスなどあればコメントいただけると幸いです！
