@@ -25,10 +25,10 @@ published: false # 公開設定（falseにすると下書き）
 # 文字としてマッチするメタキャラクタ
 | メタキャラクタ | 意味 | 図解例 | 図解例にマッチする文字列の例 |
 | ---- | ---- | ---- | ---- |
-| `.` | 任意の1文字 | `t.st` ![](/images/image1.png) `.txt` ![](/images/image2.png) | `test` `tzst` `tast` <br><br><br><br><br><br> `.txt` `stxt` |
-| `[ ]` | [ ]の中に含まれる、いずれかの1文字 | `g[rly]ow` ![](/images/image3.png) `a[b-fB-F]g` ![](/images/image4.png) `test[1-5]` ![](/images/image5.png) | `grow` `glow` `gyow` <br><br><br><br><br><br><br><br><br> `abg` `aEg` <br><br><br><br><br><br><br><br> `test1` `test4` |
-| `[^ ]` | [ ]の中に含まれない、いずれかの1文字 | `g[^rly]ow` ![](/images/image6.png) `a[^b-fB-F]g` ![](/images/image7.png) `test[^1-5]` ![](/images/image9.png) | `gaow` `gdow` `gfow` <br><br><br><br><br><br><br><br><br> `akg` `aRg` <br><br><br><br><br><br><br> `test8` |
-| `\` | 直後のメタ文字の意味を打ち消す | `\.txt` ![](/images/image8.png) | `.txt` |
+| `.` | 任意の1文字 | `t.st` ![](/images/regular_expression/image1.png) `.txt` ![](/images/regular_expression/image2.png) | `test` `tzst` `tast` <br><br><br><br><br><br> `.txt` `stxt` |
+| `[ ]` | [ ]の中に含まれる、いずれかの1文字 | `g[rly]ow` ![](/images/regular_expression/image3.png) `a[b-fB-F]g` ![](/images/regular_expression/image4.png) `test[1-5]` ![](/images/regular_expression/image5.png) | `grow` `glow` `gyow` <br><br><br><br><br><br><br><br><br> `abg` `aEg` <br><br><br><br><br><br><br><br> `test1` `test4` |
+| `[^ ]` | [ ]の中に含まれない、いずれかの1文字 | `g[^rly]ow` ![](/images/regular_expression/image6.png) `a[^b-fB-F]g` ![](/images/regular_expression/image7.png) `test[^1-5]` ![](/images/regular_expression/image8.png) | `gaow` `gdow` `gfow` <br><br><br><br><br><br><br><br><br> `akg` `aRg` <br><br><br><br><br><br><br> `test8` |
+| `\` | 直後のメタ文字の意味を打ち消す | `\.txt` ![](/images/regular_expression/image9.png) | `.txt` |
 
 - 直前に`/`を置いてメタ文字の意味を打ち消すこと「**エスケープする**」と言う。
 
