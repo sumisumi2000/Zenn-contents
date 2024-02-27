@@ -1,6 +1,6 @@
 ---
 title: "rails routes コマンドの使い方"
-emoji: "🦔"
+emoji: "🛤️"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["Rails"]
 published: true
