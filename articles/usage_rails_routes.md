@@ -152,8 +152,20 @@ Controller#Action | pages#contact
 ## :id とは
 URI Pattern の部分に `:id` や `:article_id` などが含まれるルーティングがあります。
 これらには任意の値が入ります。なので `:id` などを自分で明示的に指定する必要があります。
+具体的には、ヘルパーメソッドの引数に `:id` が推測できるようなデータを指定します。
 
-ヘルパーメソッドを用いる場合は、 `article_path(@article)` というように `:id` を持つモデルのインスタンスを渡す必要があります。
+指定方法は以下の２つがあります。
+1. `:id` に対応するデータを直接引数に指定する。
+以下のような記述が可能です。
+```
+# 5 という数字は適当なものです。実際には params から取得したものを使用したりします。
+article_path(id: 5)
+article_path(5)
+ariticle_path(@article.id)
+```
+2. モデルのインスタンスを引数に指定する。
+もし `@article` が `:id` を持つモデルのインスタンスなら、`article_path(@article)` というように渡すことができます。
+この場合はヘルパーメソッドがインスタンスから `:id` に当たる部分を自動的に推測してくれます。
 （もし、 `article_path` とすると `:id`に当たる部分を自動的に推測できないので、 `UrlGenerationError` が発生します）
 
 # おわりに
@@ -173,4 +185,6 @@ URI Pattern の部分に `:id` や `:article_id` などが含まれるルーテ�
 
 # 参考
 https://railsguides.jp/routing.html#%E6%97%A2%E5%AD%98%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%AB%E3%82%92%E4%B8%80%E8%A6%A7%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B
+https://ichigick.com/urlgenerationerror-no-route-matches-missing-required-keys-id/
+
 https://ichigick.com/urlgenerationerror-no-route-matches-missing-required-keys-id/
