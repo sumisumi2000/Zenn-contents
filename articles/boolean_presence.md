@@ -35,11 +35,11 @@ ActiveRecord::RecordInvalid: バリデーションに失敗しました: Granted
 
 > このヘルパーは、指定された属性が空（empty）でないことを確認します。値が nil や空文字でない、つまり空でもなければホワイトスペースでもないことを確認するために、内部で `Object#blank?` メソッドを使っています。（中略）
 > false.blank?は常に true なので、真偽値に対してこのメソッドを使うと正しい結果が得られません。<br>
-> Rails ガイド -> Active Reocrd バリデーション -> 2. バリデーションヘルパー -> 2.9 `presence`
+> Rails ガイド -> Active Record バリデーション -> 2. バリデーションヘルパー -> 2.9 `presence`
 
 どうやら `Object#blank?` メソッドの返り値が `true` だとバリデーションに失敗するようですね。
 （ `presence: true` の場合）
-というわけで Rails コンソールで確かめてみます。
+というわけで Rails コンソールで確かめてみました。
 
 ```ruby
 [1] pry(main)> false.blank?
@@ -49,11 +49,11 @@ ActiveRecord::RecordInvalid: バリデーションに失敗しました: Granted
 ```
 
 つまり、 `false.blank?` の返り値が `true` なので、 `presence: true` のバリデーションが失敗しているということですね。
-これでは `nil` だけでなく `false` の値も許容しないバリデーションとなっているので、意図しない挙動となってしまっています。
+これでは `nil` だけでなく `false` の値も許容しないバリデーションとなってしまい、意図しない挙動となってしまっています。
 
 ### `Object.blank?` メソッド
 
-このメソッドは Ruby の `Object` クラスには存在せず、Rails の **Active Support** による拡張機能のひとつのようです。
+このメソッドは Ruby の `Object` クラスには存在せず、Rails の **Active Support** による拡張機能のひとつです。
 
 https://railsguides.jp/active_support_core_extensions.html#blank-questionmark%E3%81%A8present-questionmark
 
@@ -104,7 +104,7 @@ https://docs.ruby-lang.org/ja/3.2/method/Module/i/ancestors.html
  Kernel,
 ```
 
-`FalseClass` は `Class` クラスのインスタンスであり、 `Class` クラスは `Module` クラスを継承しているので、 `ancestors` メソッドが使用できるということですね。
+`FalseClass` は `Class` クラスのインスタンスであり、 `Class` クラスは `Module` クラスを継承しているので、 `ancestors` メソッドが使用できるということです。
 ちなみに、 `class` メソッドは `Class` クラスのメソッドではなく、 `Object` クラスのインスタンスメソッドです。
 
 https://docs.ruby-lang.org/ja/3.2/method/Object/i/class.html
@@ -125,22 +125,22 @@ https://docs.ruby-lang.org/ja/3.2/method/Object/i/class.html
 > ```
 >
 > これらのバリデーションのいずれかを使うことで、値が決して nil にならないようにできます。nil があると、ほとんどの場合 NULL 値になります。<br>
-> Rails ガイド -> Active Reocrd バリデーション -> 2. バリデーションヘルパー -> 2.9 `presence`
+> Rails ガイド -> Active Record バリデーション -> 2. バリデーションヘルパー -> 2.9 `presence`
 
 ### `inclusion`
 
 ```diff ruby
 class Wish < ApplicationRecord
 - validates :granted, presence: true
-+ validates :granted, granted: [true, false]
++ validates :granted, inclusion: [true, false]
 end
 ```
 
-`inclusion` を使用することで `granted` には `true` or `false` が含まれているかを検証してくれます。
+`inclusion` を使用することで `granted` が `true` または `false` であることを検証します。
 
 https://railsguides.jp/active_record_validations.html#inclusion
 
-### `exclulsion`
+### `exclusion`
 
 ```diff ruby
 class Wish < ApplicationRecord
@@ -149,7 +149,7 @@ class Wish < ApplicationRecord
 end
 ```
 
-`exclusion` は `inclusion` と逆で、 `granted` には `nil` が**含まれていない**ことを検証してくれます。
+`exclusion` は `inclusion` と逆で、 `granted` には `nil` が**含まれていない**ことを検証します。
 
 https://railsguides.jp/active_record_validations.html#exclusion
 
@@ -162,7 +162,8 @@ https://www.postgresql.org/docs/14/datatype-boolean.html
 
 # おわりに
 
-今回のバリデーションの目的はデータベースに存在する `boolean` 型のカラムに `null` が入らないようにバリデーションを設定するのが目的なので、個人的には `exclusion` の方が直感的だなと感じました。
+今回のバリデーションの目的はデータベースに存在する `boolean` 型のカラムに `null` が入らないようにバリデーションを設定することです。
+なので、個人的には `exclusion` の方が直感的だなと感じました。
 
 お気づきの点があればコメントいただけると幸いです。
 最後までお読みいただき、ありがとうございました。
