@@ -3,7 +3,7 @@ title: "boolean 型のカラムに presence のバリデーションをしよう
 emoji: "🔍"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [Ruby, Rails, バリデーション]
-published: false
+published: true
 ---
 
 # はじめに
