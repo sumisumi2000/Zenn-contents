@@ -14,7 +14,7 @@ class Wish < ApplicationRecord
 end
 ```
 
-Rails の開発をしていて `boolean` 型のカラム（`granted`）に `null` が入らないように、上記のようなバリデーションを設定していた。
+Rails の開発をしていて `boolean` 型のカラム（`granted`）に `null` が入らないよう、上記のようなバリデーションを設定していました。
 しかし、これでは `granted` が `false` の場合、バリデーションエラーとなってしまいました。
 
 ```bash
@@ -37,7 +37,8 @@ ActiveRecord::RecordInvalid: バリデーションに失敗しました: Granted
 > false.blank?は常に true なので、真偽値に対してこのメソッドを使うと正しい結果が得られません。<br>
 > Rails ガイド -> Active Reocrd バリデーション -> 2. バリデーションヘルパー -> 2.9 `presence`
 
-どうやら `Object#blank?` メソッドの返り値が `true` だとバリデーションに失敗するようですね。（ `presence: true` の場合）
+どうやら `Object#blank?` メソッドの返り値が `true` だとバリデーションに失敗するようですね。
+（ `presence: true` の場合）
 というわけで Rails コンソールで確かめてみます。
 
 ```ruby
@@ -56,7 +57,7 @@ ActiveRecord::RecordInvalid: バリデーションに失敗しました: Granted
 
 https://railsguides.jp/active_support_core_extensions.html#blank-questionmark%E3%81%A8present-questionmark
 
-では `false` の生成クラス `ancestors` メソッドで確認してみましょう。
+では `false` のクラスである `FalseClass` が継承しているクラスを `ancestors` メソッドで確認してみましょう。
 
 ```ruby
 [1] pry(main)> false.class
@@ -162,6 +163,7 @@ https://www.postgresql.org/docs/14/datatype-boolean.html
 # おわりに
 
 今回のバリデーションの目的はデータベースに存在する `boolean` 型のカラムに `null` が入らないようにバリデーションを設定するのが目的なので、個人的には `exclusion` の方が直感的だなと感じました。
+
 お気づきの点があればコメントいただけると幸いです。
 最後までお読みいただき、ありがとうございました。
 
